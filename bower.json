@@ -1,0 +1,24 @@
+{
+  "name": "array-without",
+  "main": "array-without.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/miguelmota/array-without",
+  "authors": [
+    "Miguel Mota <miguelmota2@gmail.com>"
+  ],
+  "description": "Creates an array with excluded values.",
+  "keywords": [
+    "array",
+    "collection",
+    "without",
+    "omit"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT"
+}
