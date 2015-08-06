@@ -1,16 +1,26 @@
 (function(root) {
   'use strict';
 
-  function arrayWithout(a, w) {
-    a = Array.isArray(a) ? a.slice(0) : [];
-    w = flatten([].slice.call(arguments, 1));
-    for (var i = 0; i < w.length; i++) {
-      var j = a.indexOf(w[i]);
+  function arrayWithout(a) {
+    var arr, args;
+    if (Array.isArray(this)) {
+      arr = this.slice(0);
+      args = [].slice.call(arguments);
+    } else {
+      if (!Array.isArray(a)) {
+        return [];
+      }
+      arr = a.slice(0);
+      args = [].slice.call(arguments, 1);
+    }
+    args = flatten(args);
+    for (var i = 0; i < args.length; i++) {
+      var j = arr.indexOf(args[i]);
       if (j > -1) {
-        a.splice(j,1);
+        arr.splice(j, 1);
       }
     }
-    return a;
+    return arr;
   }
 
   function flatten(a) {
