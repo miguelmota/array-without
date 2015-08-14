@@ -1,7 +1,24 @@
 (function(root) {
   'use strict';
 
+  /**
+   * arrayWithout
+   * @param {array} array - original array
+   * @param {array} without - collection to omit
+   * @example
+   * arrayWithout(['a','b','c'], ['a','b','c']); // ['a']
+   */
   function arrayWithout(a, w) {
+    /*
+     * Allows extension of prototype.
+     * @example
+     * Array.prototype.without = arrayWithout;
+     * ['a','b','c'].without(['a','b','c']); // ['a']
+     */
+    if (Array.isArray(this)) {
+      return arrayWithout.apply(null, [this].concat([].slice.call(arguments)));
+    }
+
     a = Array.isArray(a) ? a.slice(0) : [];
     w = flatten([].slice.call(arguments, 1));
     for (var i = 0; i < w.length; i++) {
